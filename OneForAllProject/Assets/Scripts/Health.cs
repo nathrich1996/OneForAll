@@ -25,7 +25,7 @@ public class Health : MonoBehaviour
                the activation of hero that is dead and everything else tied to them   */
     }
 
-    void DecreaseHealth(float dmg)
+    public void DecreaseHealth(float dmg)
     {
         curHealth = curHealth - dmg;
     }
