@@ -9,7 +9,7 @@ namespace   Player.HeroAbility
 
         float rockFistMeter;
         float maxMeter; //value to cap meter
-        bool isBoulderShieldActive = false;
+        public  bool isBoulderShieldActive = false;
         private void Start()
         {
             rockFistMeter = 0f;
@@ -40,7 +40,7 @@ namespace   Player.HeroAbility
             //Implement rock fist attack here
             rockFistMeter = 0; //meter is back to zero;
         }
-        void AddToRockFistMeter(float damageValue)//add to meter when Boulder Shield hits projectiles
+        public void AddToRockFistMeter(float damageValue)//add to meter when Boulder Shield hits projectiles
         {
             rockFistMeter += damageValue;
             if (rockFistMeter>maxMeter)
