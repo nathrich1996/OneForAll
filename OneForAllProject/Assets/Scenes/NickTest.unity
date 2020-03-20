@@ -262,6 +262,7 @@ GameObject:
   - component: {fileID: 534638563}
   - component: {fileID: 534638562}
   - component: {fileID: 534638566}
+  - component: {fileID: 534638567}
   m_Layer: 0
   m_Name: PMelee
   m_TagString: EnemyAttack
@@ -393,6 +394,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 2
+--- !u!114 &534638567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534638561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aed5607f77f73e744aa3b70b9f304de2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  curHealth: 0
+  self: {fileID: 534638561}
 --- !u!1 &1462059689
 GameObject:
   m_ObjectHideFlags: 0
@@ -540,6 +556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  curHealth: 0
   self: {fileID: 1462059689}
 --- !u!114 &1462059695
 MonoBehaviour:
@@ -566,7 +583,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4dee716b9b06bb448d508437bc80f0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  platformLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  rayColor: {r: 0, g: 0, b: 0, a: 0}
   moveSpeed: 5
+  jumpVelocity: 0
+  fallMultiplier: 2
+  lowJumpMultiplier: 2
 --- !u!1 &1488705339
 GameObject:
   m_ObjectHideFlags: 0
