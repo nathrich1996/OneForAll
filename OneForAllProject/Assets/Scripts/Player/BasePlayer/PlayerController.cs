@@ -5,15 +5,18 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 
 {
+    //Components
     private Rigidbody2D RigidBody;
-    private BoxCollider2D boxCollider; 
+    private BoxCollider2D boxCollider;
 
+    //raycast variables
     [SerializeField] private LayerMask platformLayerMask;
     public Color rayColor;
 
     public float moveSpeed = 5f;
-    float HorizontalMove = 0f;
-    private bool Grounded = true;
+    public float HorizontalMove = 0f;
+    public bool Grounded = true;
+
 
     //base jump
     [Range(1, 10)]
@@ -32,9 +35,11 @@ public class PlayerController : MonoBehaviour
 
     private bool isGrounded()
     {
-        float extraHeightText = .5f;
-        RaycastHit2D hit = Physics2D.Raycast(boxCollider.bounds.center, Vector2.down, boxCollider.bounds.extents.y + extraHeightText, platformLayerMask);
+        //cast ray down from center of boxcollider, at a distance half the length of box collider (+ extraHeight). Only hits platfrom layer.
+        float extraHeight = .5f;
+        RaycastHit2D hit = Physics2D.Raycast(boxCollider.bounds.center, Vector2.down, boxCollider.bounds.extents.y + extraHeight, platformLayerMask);
 
+        //if something is hit, check if it's tagged "Ground" to return true and false if tagged different. If hit is null (still airbourne), then return false.
         if (hit.collider != null)
         {
             Debug.Log("colliding with " + hit.collider.tag);
@@ -57,10 +62,12 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //movement
         HorizontalMove = Input.GetAxisRaw("Horizontal") * moveSpeed;
         Vector3 movement = new Vector3(HorizontalMove, 0f, 0f);
         transform.position += movement * Time.deltaTime;
 
+        //update whether the player is grounded
         Grounded = isGrounded();
 
         Debug.DrawRay(transform.position, Vector2.down, rayColor);
@@ -70,8 +77,6 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump") && Grounded)
         {
             GetComponent<Rigidbody2D>().velocity = Vector2.up * jumpVelocity;
-            //temp ground check
-            //isGrounded = false;
         }
 
         Debug.Log("Player velocity " + RigidBody.velocity.y);
