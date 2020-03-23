@@ -36,8 +36,13 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded()
     {
         //cast ray down from center of boxcollider, at a distance half the length of box collider (+ extraHeight). Only hits platfrom layer.
-        float extraHeight = .5f;
-        RaycastHit2D hit = Physics2D.Raycast(boxCollider.bounds.center, Vector2.down, boxCollider.bounds.extents.y + extraHeight, platformLayerMask);
+        float extraHeight = .1f;
+
+        //RaycastHit2D hit = Physics2D.Raycast(boxCollider.bounds.center, Vector2.down, boxCollider.bounds.extents.y + extraHeight, platformLayerMask);
+        RaycastHit2D hit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0f, Vector2.down, boxCollider.bounds.extents.y + extraHeight, platformLayerMask);
+        Debug.DrawRay(boxCollider.bounds.center + new Vector3(boxCollider.bounds.extents.x, 0), Vector2.down * (boxCollider.bounds.extents.y + extraHeight), rayColor);
+        Debug.DrawRay(boxCollider.bounds.center - new Vector3(boxCollider.bounds.extents.x, 0), Vector2.down * (boxCollider.bounds.extents.y + extraHeight), rayColor);
+        Debug.DrawRay(boxCollider.bounds.center - new Vector3(boxCollider.bounds.extents.x, boxCollider.bounds.extents.y + extraHeight), Vector2.right * (boxCollider.bounds.extents.y + extraHeight), rayColor);
 
         //if something is hit, check if it's tagged "Ground" to return true and false if tagged different. If hit is null (still airbourne), then return false.
         if (hit.collider != null)
@@ -70,7 +75,6 @@ public class PlayerController : MonoBehaviour
         //update whether the player is grounded
         Grounded = isGrounded();
 
-        Debug.DrawRay(transform.position, Vector2.down, rayColor);
         Debug.Log("Grounded = " + Grounded);
 
         //base jump
