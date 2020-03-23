@@ -5,11 +5,11 @@ using Player.HeroAbility;
 
 public class ActivateAbility : MonoBehaviour
 {
-     HeroSwap hs;
+     public HeroSwap hs;
     // Start is called before the first frame update
     void Start()
     {
-        hs = gameObject.GetComponent<HeroSwap>();
+        //hs = gameObject.GetComponent<HeroSwap>();
     }
 
     // Update is called once per frame
@@ -24,26 +24,26 @@ public class ActivateAbility : MonoBehaviour
     }
     void ChecktoActivateAbility()
     {
-        if (Input.GetKeyDown("Q"))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             hs.currentSet.ActivateFirstAbility();
         }
-        else if (Input.GetKeyDown("E"))
+        else if (Input.GetKeyDown(KeyCode.E))
         {
             hs.currentSet.ActivateSecondAbility();
         }
     }
     void CheckForSwap()
     {
-        if (Input.GetKeyDown("1") && hs.currentHero != "Justice") //Activate Old Justice
+        if (Input.GetKey(KeyCode.Alpha1) && hs.GetCurrentHero() != "Justice") //Activate Old Justice
         {
             hs.SwitchAbility("Justice");
         }
-        else if (Input.GetKeyDown("2") && hs.currentHero != "Atlas") //Activate Atlas
+        else if (Input.GetKey(KeyCode.Alpha2) && hs.GetCurrentHero() != "Atlas") //Activate Atlas
         {
             hs.SwitchAbility("Atlas");
         }
-        else if (Input.GetKeyDown("3") && hs.currentHero != "Calico") //Activate Calico 
+        else if (Input.GetKey(KeyCode.Alpha3) && hs.GetCurrentHero() != "Calico") //Activate Calico 
         {
             hs.SwitchAbility("Calico");
         }
