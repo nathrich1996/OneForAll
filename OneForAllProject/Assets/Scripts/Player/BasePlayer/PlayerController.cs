@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
         //if something is hit, check if it's tagged "Ground" to return true and false if tagged different. If hit is null (still airbourne), then return false.
         if (hit.collider != null)
         {
-            Debug.Log("colliding with " + hit.collider.tag);
+            //Debug.Log("colliding with " + hit.collider.tag);
             if (hit.collider.tag == "Ground")
             {
                 rayColor = Color.green;
@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour
         //update whether the player is grounded
         Grounded = isGrounded();
 
-        Debug.Log("Grounded = " + Grounded);
+        //Debug.Log("Grounded = " + Grounded);
 
         //base jump
         if (Input.GetButtonDown("Jump") && Grounded)
@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour
             GetComponent<Rigidbody2D>().velocity = Vector2.up * jumpVelocity;
         }
 
-        Debug.Log("Player velocity " + RigidBody.velocity.y);
+        //Debug.Log("Player velocity " + RigidBody.velocity.y);
 
         //better jump
         if (RigidBody.velocity.y < 0)
