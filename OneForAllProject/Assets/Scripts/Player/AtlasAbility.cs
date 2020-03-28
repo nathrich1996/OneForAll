@@ -9,9 +9,14 @@ namespace   Player.HeroAbility
 
         float rockFistMeter;
         float maxMeter; //value to cap meter
+        float shieldParryVal;
         public  bool isBoulderShieldActive = false;
+        public GameObject self;
+        public GameObject fistHB;
+
         private void Start()
         {
+            shieldParryVal = 1;
             rockFistMeter = 0f;
             maxMeter = 15;
         }
@@ -37,8 +42,21 @@ namespace   Player.HeroAbility
         }
         void RockFist()
         {
-            //Implement rock fist attack here
-            rockFistMeter = 0; //meter is back to zero;
+            if (isBoulderShieldActive == true)
+                Debug.Log("Shield up, can't use rock fist");
+            else
+            {
+                if (Input.GetKeyDown("E"))
+                {
+                    float fistDmg = 30;
+                    fistDmg = fistDmg * rockFistMeter;
+                    fistHB.GetComponent<CollisionKey>().trueDamage = fistDmg;
+                    fistHB.SetActive(true);
+                    StartCoroutine("Lag");
+                    fistHB.SetActive(false);
+                    rockFistMeter = 0; //meter is back to zero;
+                }
+            }
         }
         public void AddToRockFistMeter(float damageValue)//add to meter when Boulder Shield hits projectiles
         {
@@ -47,6 +65,20 @@ namespace   Player.HeroAbility
             {
                 rockFistMeter = maxMeter;
             }
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (isBoulderShieldActive == true)
+            {
+                AddToRockFistMeter(shieldParryVal);
+                collision.gameObject.SetActive(false);
+            }
+        }
+
+        IEnumerator Lag()
+        {
+            yield return new WaitForSeconds(3);
         }
 
     }

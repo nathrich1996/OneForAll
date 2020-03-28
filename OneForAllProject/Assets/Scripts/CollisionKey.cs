@@ -8,7 +8,7 @@ public class CollisionKey : MonoBehaviour
     string[] AttackName = { "PMelee" /*Insert Ability names here*/ };
     float[] DamageContainer = { 10/*Insert ability damage values here*/ };
     public GameObject self;
-    float trueDamage;
+    public float trueDamage;
 
     void Start()
     {
