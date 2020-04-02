@@ -16,6 +16,7 @@ namespace   Player.HeroAbility
 
         private void Start()
         {
+            fistHB.SetActive(false);
             shieldParryVal = 1;
             rockFistMeter = 0f;
             maxMeter = 15;
@@ -48,13 +49,14 @@ namespace   Player.HeroAbility
             {
                 if (Input.GetKeyDown("E"))
                 {
-                    float fistDmg = 30;
-                    fistDmg = fistDmg * rockFistMeter;
+                    Debug.Log("Punch");
+                    float fistDmg = 30 * rockFistMeter;
                     fistHB.GetComponent<CollisionKey>().trueDamage = fistDmg;
                     fistHB.SetActive(true);
                     StartCoroutine("Lag");
                     fistHB.SetActive(false);
                     rockFistMeter = 0; //meter is back to zero;
+                    StartCoroutine("Lag");
                 }
             }
         }
