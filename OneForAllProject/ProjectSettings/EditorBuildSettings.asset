@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 93490002916e7f74abbd117bf026e384
   - enabled: 1
-    path: Assets/Scenes/MoveTestScene.unity
+    path: Assets/Scenes/PrefabMoveTest.unity
     guid: b85955a153ffd064ba3314350c417531
   m_configObjects: {}
