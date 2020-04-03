@@ -907,7 +907,6 @@ GameObject:
   - component: {fileID: 1462059694}
   - component: {fileID: 1462059696}
   - component: {fileID: 1462059697}
-  - component: {fileID: 1462059698}
   m_Layer: 0
   m_Name: CharTest
   m_TagString: Player
@@ -1089,25 +1088,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1462059689}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ac354990676272478b704aa13b2a78d, type: 3}
+  m_Script: {fileID: 11500000, guid: 6447ca9ff3488614d971f6bc59c41171, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isBoulderShieldActive: 0
   self: {fileID: 1462059689}
   fistHB: {fileID: 670206509}
---- !u!114 &1462059698
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1462059689}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fbf8c4de86ce5e4b9e88b978e8fb11d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hs: {fileID: 0}
 --- !u!1 &1488705339
 GameObject:
   m_ObjectHideFlags: 0

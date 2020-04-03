@@ -9,12 +9,12 @@ public class GunEnemyAI : MonoBehaviour
     public GameObject self;
     public Camera playerView;
     Rigidbody2D rb;
-    private IEnumerator coroutine;
-    
+    private float timer, maxtimer;   
 
     void Start()
     {
-       
+        maxtimer = 3;
+        timer = maxtimer;
     }
 
     
@@ -25,20 +25,20 @@ public class GunEnemyAI : MonoBehaviour
 
     private void ICanSee()
     {
-        Vector2 screenpoint = playerView.WorldToScreenPoint(self.transform.position);
-        if (screenpoint.x > 0 && screenpoint.x < Screen.width)
+        timer -= Time.deltaTime;
+        if (timer <= 0)
         {
-            coroutine = attackDelay();
-            StartCoroutine(coroutine);
+            Vector2 screenpoint = playerView.WorldToScreenPoint(self.transform.position);
+            if (screenpoint.x > 0 && screenpoint.x < Screen.width)
+            {
+                GameObject pewlaser = Instantiate(laser, shootSpot);
+            }
+            timer = maxtimer;
         }
     }
 
-    IEnumerator attackDelay()
-    {
-        yield return new WaitForSecondsRealtime(2);
-        Debug.Log("I can see you!");
-        GameObject pewlaser = Instantiate(laser, shootSpot);
-        Debug.Log("Delay");
-        yield return new WaitForSecondsRealtime(2);
-    }
+
+
+
+
 }
