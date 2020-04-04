@@ -18,7 +18,11 @@ using Player.HeroAbility;
         [HideInInspector]
         public SpriteRenderer currentSprite;
         string currentHero; //Either Justice, Atlas, or Calico
-        
+
+        //Variable(s) for Animator to use ---------------------------------------
+        public bool swapped = false;
+        //public Animator PlayerAnimator;
+        ///-----------------------------------------------------------------
 
         //Cooldown Variables
         bool onCooldown;
@@ -37,6 +41,7 @@ using Player.HeroAbility;
             {
                 heroCooldown[i] = false;
             }
+            //PlayerAnimator = GetComponent<Animator>();
         }
 
         // Update is called once per frame
@@ -72,6 +77,9 @@ using Player.HeroAbility;
                         onCooldown = true;
                         currentSprite.sprite = heroSprites[0];
                         heroIndex = 0;
+                        currentHero = "Justice";
+                        swapped = true;
+                        //PlayerAnimator.SetBool("Swapped", true);
                     //}
                     break;
                 case "Atlas":
@@ -82,8 +90,11 @@ using Player.HeroAbility;
                         onCooldown = true;
                         currentSprite.sprite = heroSprites[1];
                         heroIndex = 1;
-                    //}
-                    break;
+                        currentHero = "Atlas";
+                        swapped = true;
+                        //PlayerAnimator.SetBool("Swapped", true);
+                //}
+                break;
                 case "Calico":
                     //if (!heroCooldown[2])
                     //{
@@ -91,8 +102,11 @@ using Player.HeroAbility;
                         heroCooldown[2] = true;
                         onCooldown = true;
                         currentSprite.sprite = heroSprites[2];
-                    //}
-                    break;
+                        currentHero = "Calico";
+                        swapped = true;
+                        //PlayerAnimator.SetBool("Swapped", true);
+                //}
+                break;
                   
             }
         }
