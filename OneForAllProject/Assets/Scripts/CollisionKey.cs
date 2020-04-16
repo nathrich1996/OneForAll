@@ -44,6 +44,7 @@ public class CollisionKey : MonoBehaviour
                         trueDamage = DamageContainer[j];
                         self.GetComponent<Health>().DecreaseHealth(trueDamage);
                         Debug.Log("HIT!");
+                        trueDamage = 0;
                         StartCoroutine(briefInvincibility());
                         break;
                     }
