@@ -829,8 +829,8 @@ MonoBehaviour:
   moveSpeed: 5
   HorizontalMove: 0
   Grounded: 1
-  jumpVelocity: 8
-  fallMultiplier: 2.5
+  jumpVelocity: 9
+  fallMultiplier: 3
   lowJumpMultiplier: 2
 --- !u!95 &1552396971
 Animator:
@@ -866,7 +866,7 @@ MonoBehaviour:
   animator: {fileID: 1552396971}
   PlayerControllerScript: {fileID: 1552396970}
   sprite: {fileID: 1552396968}
-  Swap: {fileID: 0}
+  SwapScript: {fileID: 0}
 --- !u!114 &1552396973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -904,6 +904,7 @@ MonoBehaviour:
   - {fileID: 6470654750909275315, guid: 0430d229775eb354eaaf82312bc04e44, type: 3}
   - {fileID: 4449416016275422159, guid: a42105c1569223541bb0b37456389221, type: 3}
   currentSprite: {fileID: 0}
+  swapped: 0
 --- !u!114 &1552396975
 MonoBehaviour:
   m_ObjectHideFlags: 0
