@@ -10,7 +10,7 @@ public class BOSSAI : MonoBehaviour
 
     void Start()
     {
-        maxtimer = 2;
+        maxtimer = 3;
         atkTimer = maxtimer;
     }
 
@@ -35,16 +35,17 @@ public class BOSSAI : MonoBehaviour
 
     void Boss_Missile()
     {
-
+        Instantiate(tacticalNuke, nukeSpawn);
     }
 
     void Boss_Laser()
     {
-
+        Instantiate(laser, laserSpawn);
     }
 
     void Boss_Rupture()
     {
-
+        //Make noise
+        //Make aoe
     }
 }
