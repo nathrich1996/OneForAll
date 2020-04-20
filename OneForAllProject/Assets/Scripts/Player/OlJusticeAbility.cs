@@ -24,7 +24,14 @@ namespace Player.HeroAbility
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             GameObject thrownRang = Instantiate(justarang, transform) as GameObject;
             thrownRang.transform.position = player.transform.position;
-            thrownRang.GetComponent<Justarang>().SetDirection(2f);
+            if(player.GetComponent<PlayerController>().GetMoveState() == PlayerMove.right)
+            {
+                thrownRang.GetComponent<Justarang>().SetDirection(1f);
+            }
+            else if(player.GetComponent<PlayerController>().GetMoveState() == PlayerMove.left)
+            {
+                thrownRang.GetComponent<Justarang>().SetDirection(-1f);
+            }
 
         }
     }

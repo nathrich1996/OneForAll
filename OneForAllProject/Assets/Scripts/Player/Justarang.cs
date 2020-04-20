@@ -33,7 +33,7 @@ public class Justarang : MonoBehaviour
         if (!isDestroyed)
         {
             rb.AddForce(new Vector2(projSpeed * Time.deltaTime, 0));
-            transform.Rotate(0, 0, 200f * Time.deltaTime);
+            transform.Rotate(0, 0, 800f * Time.deltaTime);
         }
     }
     

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
-
 {
     //Components
     private Rigidbody2D RigidBody;
@@ -26,11 +25,15 @@ public class PlayerController : MonoBehaviour
     public float fallMultiplier = 2f;
     public float lowJumpMultiplier = 2f;
 
+    //State machine to detect which way character is facing
+    PlayerMove playerMoveState;
+
     // Start is called before the first frame update
     void Start()
     {
         RigidBody = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
+        playerMoveState = PlayerMove.right;
     }
 
     private bool isGrounded()
@@ -67,6 +70,15 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Change State if need be
+        if(Input.GetAxisRaw("Horizontal") > 0f) //facing right
+        {
+            playerMoveState = PlayerMove.right;
+        }
+        else if (Input.GetAxisRaw("Horizontal") < 0f) // facing left;
+        {
+            playerMoveState = PlayerMove.left;
+        }
         //movement
         HorizontalMove = Input.GetAxisRaw("Horizontal") * moveSpeed;
         Vector3 movement = new Vector3(HorizontalMove, 0f, 0f);
@@ -94,5 +106,14 @@ public class PlayerController : MonoBehaviour
         {
             RigidBody.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
+    }//end of Update
+    public PlayerMove GetMoveState()
+    {
+        return playerMoveState;
     }
+}//end of Player Controller
+public enum PlayerMove
+{
+    left,
+    right
 }
