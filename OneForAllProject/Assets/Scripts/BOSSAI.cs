@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class BOSSAI : MonoBehaviour
 {
-    public Transform nukeSpawn, laserSpawn, ruptSpawn;
-    public GameObject laser, tacticalNuke, rupt;
-    private float atkTimer, maxtimer;
+    public Transform nukeSpawn, laserSpawn, droneSpawn;
+    public GameObject laser, tacticalNuke, drone;
+    private float atkTimer, maxtimer, roll;
 
     void Start()
     {
@@ -20,13 +20,13 @@ public class BOSSAI : MonoBehaviour
         atkTimer -= Time.deltaTime;
         if(atkTimer <= 0)
         {
-            float roll = Random.Range(1, 3);
+            roll = Random.Range(1, 3);
             if (roll == 1)
                 Boss_Missile();
             else if (roll == 2)
                 Boss_Laser();
             else if (roll == 3)
-                Boss_Rupture();
+                Boss_Drone();
             else
                 Debug.Log("Gruh Moment");
             atkTimer = maxtimer;
@@ -43,9 +43,8 @@ public class BOSSAI : MonoBehaviour
         Instantiate(laser, laserSpawn);
     }
 
-    void Boss_Rupture()
+    void Boss_Drone()
     {
-        //Make noise
-        //Make aoe
+        Instantiate(drone, droneSpawn);
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class boss_tacticalnuke : MonoBehaviour
 {
-    public Transform playerPosition;
+    private Transform playerPosition;
     Rigidbody2D rb;
     public float turnRate, nukeVelocity;
 
@@ -12,6 +12,8 @@ public class boss_tacticalnuke : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0;
+        GameObject player = GameObject.FindWithTag("Player");
+        playerPosition = player.transform;
     }
 
     
