@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMelee : MonoBehaviour
 {
     public GameObject meleeHB;
+    public bool fhit = false;
 
     void Start()
     {
@@ -26,6 +27,7 @@ public class PlayerMelee : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             Debug.Log("Basic Melee");
+            fhit = true;
             float meatk = 10;
             meleeHB.GetComponent<CollisionKey>().trueDamage = meatk;
             meleeHB.SetActive(true);

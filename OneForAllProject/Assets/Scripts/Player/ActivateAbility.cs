@@ -6,10 +6,15 @@ using Player.HeroAbility;
 public class ActivateAbility : MonoBehaviour
 {
      public HeroSwap hs;
+    //public Animator animator;
+    public bool qhit = false;
+    public bool ehit = false;
+
     // Start is called before the first frame update
     void Start()
     {
         //hs = gameObject.GetComponent<HeroSwap>();
+        //animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -26,10 +31,12 @@ public class ActivateAbility : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
+            qhit = true;
             hs.currentSet.ActivateFirstAbility();
         }
         else if (Input.GetKeyDown(KeyCode.E))
         {
+            ehit = true;
             hs.currentSet.ActivateSecondAbility();
         }
     }

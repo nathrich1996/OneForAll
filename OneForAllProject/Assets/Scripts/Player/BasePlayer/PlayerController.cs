@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
 
     public float moveSpeed = 5f;
     public float HorizontalMove = 0f;
+    public float VerticalMove = 0f;
     public bool Grounded = true;
 
 
@@ -106,6 +107,8 @@ public class PlayerController : MonoBehaviour
         {
             RigidBody.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
+        VerticalMove = RigidBody.velocity.y;
+        Debug.Log("VerticalMove: " + VerticalMove);
     }//end of Update
     public PlayerMove GetMoveState()
     {
