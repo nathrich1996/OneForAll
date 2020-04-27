@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MVPShowcase.unity
     guid: 5b1dbd05132e2ca44a36407369b73112
+  - enabled: 1
+    path: Assets/Scenes/MeetYourHeroes.unity
+    guid: f9fb3b74a4ae9dd4392fbccf946ab290
   m_configObjects: {}

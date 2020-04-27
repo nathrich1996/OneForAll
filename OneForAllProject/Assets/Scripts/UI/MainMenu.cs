@@ -14,4 +14,8 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
     }
+    public void MeetHeroes()
+    {
+        SceneManager.LoadScene(2); //hardcoded val, should replace
+    }
 }
