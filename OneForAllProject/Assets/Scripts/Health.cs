@@ -7,7 +7,6 @@ public class Health : MonoBehaviour
 {
     public float maxHealth;
     public float curHealth;
-    public GameObject self;
 
     public Slider healthBar;
 

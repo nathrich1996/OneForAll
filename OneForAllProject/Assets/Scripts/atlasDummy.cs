@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class atlasDummy : MonoBehaviour
 {
-
     float rockFistMeter;
     float maxMeter; //value to cap meter
     float shieldParryVal;
     public bool isBoulderShieldActive = false;
-    public GameObject self;
     public GameObject fistHB;
 
     private void Start()

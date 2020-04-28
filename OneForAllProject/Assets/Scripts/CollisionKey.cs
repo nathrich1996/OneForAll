@@ -7,7 +7,6 @@ public class CollisionKey : MonoBehaviour
     string[] TagContainter = { "PlayerAttack", "EnemyAttack"};
     string[] AttackName = { "PMelee" /*Insert Ability names here*/ };
     float[] DamageContainer = { 10/*Insert ability damage values here*/ };
-    public GameObject self;
     public float trueDamage;
 
     void Start()
@@ -27,12 +26,12 @@ public class CollisionKey : MonoBehaviour
         {
             if (collision.gameObject.tag == TagContainter[i])
             {
-                if (collision.gameObject.tag == "PlayerAttack" && self.tag == "Player")
+                if (collision.gameObject.tag == "PlayerAttack" && gameObject.tag == "Player")
                 {
                     Debug.Log("Cannot damage self (Player)");
                     break;
                 }
-                else if (collision.gameObject.tag == "EnemyAttack" && self.tag == "Enemy")
+                else if (collision.gameObject.tag == "EnemyAttack" && gameObject.tag == "Enemy")
                 {
                     Debug.Log("Cannot damage self (Enemy)");
                     break;
@@ -42,7 +41,7 @@ public class CollisionKey : MonoBehaviour
                     if (collision.gameObject.name == AttackName[j])
                     {
                         trueDamage = DamageContainer[j];
-                        self.GetComponent<Health>().DecreaseHealth(trueDamage);
+                        gameObject.GetComponent<Health>().DecreaseHealth(trueDamage);
                         Debug.Log("HIT!");
                         trueDamage = 0;
                         StartCoroutine(briefInvincibility());
