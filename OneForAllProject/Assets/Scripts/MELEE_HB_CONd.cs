@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class MELEE_HB_CONd : MonoBehaviour
 {
-    public HeroSwap hs = GameObject.FindGameObjectWithTag("Player").GetComponent<HeroSwap>();
+    HeroSwap hs;
     string hero;
     float damage;
 
     void Start()
     {
-        
+        hs = GameObject.FindGameObjectWithTag("Player").GetComponent<HeroSwap>();
     }
 
     
