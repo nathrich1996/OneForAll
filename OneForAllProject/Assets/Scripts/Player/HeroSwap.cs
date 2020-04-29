@@ -21,6 +21,7 @@ using Player.HeroAbility;
 
         //Variable(s) for Animator to use ---------------------------------------
         public bool swapped = false;
+        public string prevHero;
         //public Animator PlayerAnimator;
         ///-----------------------------------------------------------------
 
@@ -34,7 +35,7 @@ using Player.HeroAbility;
         {
             onCooldown = false;
             InitializeHeroSet();
-            currentHero = "Justice";
+            currentHero = prevHero = "Justice";
             currentSprite = GetComponent<SpriteRenderer>();
             heroIndex = 0;
             for (int i= 0; i < heroCooldown.Length; i++)
@@ -67,6 +68,7 @@ using Player.HeroAbility;
     }
         public void SwitchAbility(string heroName)
         {
+            prevHero = currentHero;
             switch(heroName)
             {
                 case "Justice":
@@ -109,7 +111,9 @@ using Player.HeroAbility;
                 break;
                   
             }
-        }
+        Debug.Log("prev: " + GetPrevHero());
+        Debug.Log("Curr: " + GetCurrentHero());
+    }
         public void DisableCooldown()
         {
             cooldownTimer = 0;
@@ -125,6 +129,10 @@ using Player.HeroAbility;
     public string GetCurrentHero()
     {
         return currentHero;
+    }
+    public string GetPrevHero()
+    {
+        return prevHero;
     }
     }
 //}

@@ -541,6 +541,21 @@ PrefabInstance:
       propertyPath: heroObjects.Array.data[0]
       value: 
       objectReference: {fileID: 1078036468}
+    - target: {fileID: 625033654122319986, guid: 9be2f21b8d5d73046be83ddf3bcb41ab,
+        type: 3}
+      propertyPath: SwapAnim.Array.data[1]
+      value: 
+      objectReference: {fileID: 7400000, guid: 184e55fd87949354aaa80ada0d26f4ff, type: 2}
+    - target: {fileID: 625033654122319986, guid: 9be2f21b8d5d73046be83ddf3bcb41ab,
+        type: 3}
+      propertyPath: SwapAnim.Array.data[2]
+      value: 
+      objectReference: {fileID: 7400000, guid: 08424a428fd8acb4998c0c95be1e0d2c, type: 2}
+    - target: {fileID: 625033654122319986, guid: 9be2f21b8d5d73046be83ddf3bcb41ab,
+        type: 3}
+      propertyPath: SwapAnim.Array.data[0]
+      value: 
+      objectReference: {fileID: 7400000, guid: 80782fdd4153b6c44818b45d26ee1894, type: 2}
     - target: {fileID: 625033654122319987, guid: 9be2f21b8d5d73046be83ddf3bcb41ab,
         type: 3}
       propertyPath: healthBar

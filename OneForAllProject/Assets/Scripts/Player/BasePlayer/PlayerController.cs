@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     public float HorizontalMove = 0f;
     public float VerticalMove = 0f;
     public bool Grounded = true;
+    public bool MoveLock = false;
 
 
     //base jump
@@ -71,44 +72,48 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Change State if need be
-        if(Input.GetAxisRaw("Horizontal") > 0f) //facing right
+        if (!MoveLock)
         {
-            playerMoveState = PlayerMove.right;
-        }
-        else if (Input.GetAxisRaw("Horizontal") < 0f) // facing left;
-        {
-            playerMoveState = PlayerMove.left;
-        }
-        //movement
-        HorizontalMove = Input.GetAxisRaw("Horizontal") * moveSpeed;
-        Vector3 movement = new Vector3(HorizontalMove, 0f, 0f);
-        transform.position += movement * Time.deltaTime;
+            //Change State if need be
+            if (Input.GetAxisRaw("Horizontal") > 0f) //facing right
+            {
+                playerMoveState = PlayerMove.right;
+            }
+            else if (Input.GetAxisRaw("Horizontal") < 0f) // facing left;
+            {
+                playerMoveState = PlayerMove.left;
+            }
+            //movement
+            HorizontalMove = Input.GetAxisRaw("Horizontal") * moveSpeed;
+            Vector3 movement = new Vector3(HorizontalMove, 0f, 0f);
+            transform.position += movement * Time.deltaTime;
 
-        //update whether the player is grounded
-        Grounded = isGrounded();
+            //update whether the player is grounded
+            Grounded = isGrounded();
 
-        //Debug.Log("Grounded = " + Grounded);
+            //Debug.Log("Grounded = " + Grounded);
 
-        //base jump
-        if (Input.GetButtonDown("Jump") && Grounded)
-        {
-            GetComponent<Rigidbody2D>().velocity = Vector2.up * jumpVelocity;
+            //base jump
+            if (Input.GetButtonDown("Jump") && Grounded)
+            {
+                GetComponent<Rigidbody2D>().velocity = Vector2.up * jumpVelocity;
+            }
+
+            //Debug.Log("Player velocity " + RigidBody.velocity.y);
+
+            //better jump
+            if (RigidBody.velocity.y < 0)
+            {
+                RigidBody.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+            }
+            else if (RigidBody.velocity.y > 0 && !Input.GetButton("Jump"))
+            {
+                RigidBody.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+            }
+            VerticalMove = RigidBody.velocity.y;
+            //Debug.Log("VerticalMove: " + VerticalMove);
         }
-
-        //Debug.Log("Player velocity " + RigidBody.velocity.y);
-
-        //better jump
-        if (RigidBody.velocity.y < 0)
-        {
-            RigidBody.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
-        }
-        else if (RigidBody.velocity.y > 0 && !Input.GetButton("Jump"))
-        {
-            RigidBody.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
-        }
-        VerticalMove = RigidBody.velocity.y;
-        Debug.Log("VerticalMove: " + VerticalMove);
+       
     }//end of Update
     public PlayerMove GetMoveState()
     {
