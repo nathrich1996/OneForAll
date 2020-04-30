@@ -8,6 +8,8 @@ TagManager:
   - Ground
   - Enemy
   - PlayerAttack
+  - Justice
+  - AbilityProjectile
   layers:
   - Default
   - TransparentFX
