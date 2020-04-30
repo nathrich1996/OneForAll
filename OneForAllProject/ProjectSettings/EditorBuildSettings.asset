@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MeetYourHeroes.unity
     guid: f9fb3b74a4ae9dd4392fbccf946ab290
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: f003368f7b089b24b825c1e4f2105a9a
+  - enabled: 1
+    path: Assets/Scenes/HowtoPlay.unity
+    guid: 64c88d3b94d7a614faf516e3c37aa757
   m_configObjects: {}
