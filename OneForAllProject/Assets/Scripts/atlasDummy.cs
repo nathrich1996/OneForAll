@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class atlasDummy : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class atlasDummy : MonoBehaviour
     float shieldParryVal;
     public bool isBoulderShieldActive = false;
     public GameObject fistHB;
+    public Slider fistMeet;
 
     private void Start()
     {
@@ -23,6 +25,7 @@ public class atlasDummy : MonoBehaviour
     {
         BoulderShield();
         RockFist();
+        fistMeet.value = rockFistMeter;
     }
 
     void BoulderShield()

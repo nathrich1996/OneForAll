@@ -7,7 +7,7 @@ public class enemyLaser : MonoBehaviour
     Rigidbody2D rb;
     public float velX = -7, velY;
     private float tiktok;
-
+    public float dmg = 10;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -25,6 +25,15 @@ public class enemyLaser : MonoBehaviour
         else
         {
             tiktok += Time.deltaTime;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.GetComponent<Health>().DecreaseHealth(dmg);
+            Destroy(gameObject);
         }
     }
 }
