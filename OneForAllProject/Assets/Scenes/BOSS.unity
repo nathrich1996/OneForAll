@@ -710,6 +710,7 @@ GameObject:
   - component: {fileID: 991090939}
   - component: {fileID: 991090938}
   - component: {fileID: 991090941}
+  - component: {fileID: 991090942}
   m_Layer: 0
   m_Name: boss_dummy
   m_TagString: Untagged
@@ -795,7 +796,7 @@ Transform:
   m_GameObject: {fileID: 991090937}
   m_LocalRotation: {x: -0, y: -0, z: 0.0022141775, w: -0.99999756}
   m_LocalPosition: {x: 0.23, y: -0.154, z: 0}
-  m_LocalScale: {x: 0.02752732, y: 0.048350483, z: 2.2774}
+  m_LocalScale: {x: 0.5, y: 0.7, z: 31.154448}
   m_Children:
   - {fileID: 966941577}
   - {fileID: 1532672723}
@@ -818,6 +819,25 @@ MonoBehaviour:
   maxHealth: 0
   curHealth: 0
   healthBar: {fileID: 484403932}
+--- !u!95 &991090942
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991090937}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e6ed0b6570357814dbd104c58797930f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1210486092
 GameObject:
   m_ObjectHideFlags: 0
