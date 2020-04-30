@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
@@ -14,7 +15,8 @@ public class Health : MonoBehaviour
     {
         maxHealth = 100f;
         curHealth = maxHealth;
-        healthBar.value = CalcHealth();
+        if (gameObject.tag == "Player")
+            healthBar.value = CalcHealth();
     }
 
    
@@ -23,12 +25,13 @@ public class Health : MonoBehaviour
         if (curHealth >= maxHealth) //Exceed Max HP
             curHealth = maxHealth;
 
-        if (curHealth <= 0) //Death
-            //self.SetActive(false);
-           
-            /* Will probably eventually add conditions that disable
-               the activation of hero that is dead and everything else tied to them   */
-            Debug.Log("Bruh..");
+        if (curHealth <= 0) {//Death
+            if(gameObject.tag == "Player")
+            {
+                SceneManager.LoadScene("GameOver");
+            }
+            gameObject.SetActive(false);
+        }
 
         if (Input.GetKeyDown(KeyCode.X))
         {
@@ -43,8 +46,8 @@ public class Health : MonoBehaviour
         
         Debug.Log("- " + dmg + "HP");
         Debug.Log("HP: " + curHealth);
-
-        healthBar.value = CalcHealth();
+        if (gameObject.tag == "Player")
+            healthBar.value = CalcHealth();
 
     }
 
