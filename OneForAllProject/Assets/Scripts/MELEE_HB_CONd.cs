@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class MELEE_HB_CONd : MonoBehaviour
 {
-    HeroSwap hs;
-    string hero;
-    float damage;
+    public HeroSwap hs;
+    public string hero;
+    public float damage;
 
     void Start()
     {
@@ -19,7 +19,7 @@ public class MELEE_HB_CONd : MonoBehaviour
         hero = hs.GetCurrentHero();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
 
         if (hero == "Atlas" && collision.gameObject.tag == "Boss")
@@ -28,16 +28,23 @@ public class MELEE_HB_CONd : MonoBehaviour
             collision.gameObject.GetComponent<BOSSHEALTH>().DecreaseHealth(damage);
         }
 
-        if (hero == "Justice" && collision.gameObject.tag == "Boss")
+        else if (hero == "Justice" && collision.gameObject.tag == "Boss")
         {
             damage = 20f;
             collision.gameObject.GetComponent<BOSSHEALTH>().DecreaseHealth(damage);
         }
 
-        if (hero == "Calico" && collision.gameObject.tag == "Boss")
+        else if (hero == "Calico" && collision.gameObject.tag == "Boss")
         {
             damage = 15f;
             collision.gameObject.GetComponent<BOSSHEALTH>().DecreaseHealth(damage);
         }
+        
+        else if (collision.gameObject.tag == "Enemy")
+        {
+            Debug.Log("Hit Enemy");
+            collision.gameObject.GetComponent<Health>().DecreaseHealth(20f);
+        }
+
     }
 }

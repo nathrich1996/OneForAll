@@ -34,7 +34,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnRate: 1000
-  nukeVelocity: 50
+  nukeVelocity: 70
+  dmg: 10
 --- !u!1001 &8902453112452784296
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -96,6 +97,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2278720400640957206, guid: a42105c1569223541bb0b37456389221,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2278720400640957206, guid: a42105c1569223541bb0b37456389221,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4449416016275422159, guid: a42105c1569223541bb0b37456389221,
         type: 3}
