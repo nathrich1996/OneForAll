@@ -18,4 +18,12 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene(2); //hardcoded val, should replace
     }
+    public void Credits()
+    {
+        SceneManager.LoadScene(3);
+    }
+    public void HowToPlay()
+    {
+        SceneManager.LoadScene(4);
+    }
 }
