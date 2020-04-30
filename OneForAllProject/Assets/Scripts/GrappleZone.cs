@@ -30,12 +30,12 @@ public class GrappleZone : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player" && hs.GetCurrentHero() == "Justice") //if OJ leaves zone
+        if (collision.gameObject.tag == "Player" ) //if OJ leaves zone
         {
             Debug.Log("Player Left Zone");
             grappleTarget.SetActive(false); //Make grapple icon disappear
             gh.ToggleHookZone(false); //Make sure player is not in a hook zone
-            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().orthographicSize = 6f;
+            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().orthographicSize = 3f;
 
         }
     }
