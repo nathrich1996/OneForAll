@@ -12,11 +12,16 @@ public class enemyLaser : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         tiktok = 0;
+        if (GameObject.FindGameObjectWithTag("Player").transform.position.x >= transform.position.x)
+        {
+            velX *= -1;
+        }
     }
 
    
     void Update()
     {
+        
         rb.velocity = new Vector2(velX, velY);
         if(tiktok > 3.0f)
         {
@@ -46,13 +51,13 @@ public class enemyLaser : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player" && !collision.gameObject.GetComponent<AtlasBoulderShield>().ShieldActivity())
+        if (collision.gameObject.tag == "Player" && !collision.gameObject.GetComponent<ActivateAbility>().AreInvincible())
         {
             collision.gameObject.GetComponent<Health>().DecreaseHealth(dmg);
             Destroy(gameObject);
             Debug.Log("Laser hit Player");
         }
-        if (collision.gameObject.tag == "Player" && collision.gameObject.GetComponent<AtlasBoulderShield>().ShieldActivity())
+        if (collision.gameObject.tag == "Player" && collision.gameObject.GetComponent<ActivateAbility>().AreInvincible())
         {
             Destroy(gameObject);
         }

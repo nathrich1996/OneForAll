@@ -5,30 +5,44 @@ using UnityEngine;
 public class CalicoDash : MonoBehaviour
 {
 
-    public GameObject controllerSource;
-    private float getSpeed, dashStop = 0.05f, dashmaxtimer, dashtimer;
-
+    bool activated;
+    float dashDistance;
+    Rigidbody2D rb;
+    PlayerController pc;
     void Start()
     {
-        dashmaxtimer = 1;
-        dashtimer = dashmaxtimer;
+        activated = false;
+        dashDistance = 100f;
+        rb = GetComponent<Rigidbody2D>();
+        pc = GetComponent<PlayerController>();
+    }
+    public bool PounceActivity()
+    {
+        return activated;
+    }
+    public void ActivatePounce()
+    {
+        activated = true;
+        StartCoroutine("WaitForAnim");
+        if (pc.GetMoveState() == PlayerMove.right)
+        {
+            rb.AddForce(new Vector2(dashDistance * Time.deltaTime, 0));
+        }
+        if (pc.GetMoveState() == PlayerMove.left)
+        {
+            rb.AddForce(new Vector2(-1f*dashDistance * Time.deltaTime, 0));
+        }
+        StartCoroutine("DeActivate");
     }
 
-    
-    void Update()
+    IEnumerator DeActivate()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            dashtimer = 0;
-        }
-        if (dashtimer < dashmaxtimer)
-        {
-            controllerSource.GetComponent<PlayerController>().moveSpeed = 20f;
-            dashtimer += dashStop;
-        }
-        else
-        {
-            controllerSource.GetComponent<PlayerController>().moveSpeed = 5f;
-        }
+        yield return new WaitForSeconds(2);
+        activated = false;
     }
+    IEnumerator WaitForAnim()
+    {
+        yield return new WaitForSeconds(1);
+    }
+    
 }

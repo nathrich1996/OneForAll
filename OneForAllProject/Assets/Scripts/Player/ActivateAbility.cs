@@ -33,7 +33,6 @@ public class ActivateAbility : MonoBehaviour
         {
             qhit = true;
             hs.currentSet.ActivateFirstAbility();
-            GameObject.FindGameObjectWithTag("RockFist").SetActive(true);
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -47,7 +46,6 @@ public class ActivateAbility : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.E))
         {
             GameObject.FindGameObjectWithTag("RockFist").GetComponent<RockFist>().DeactivateRockFist();
-            GameObject.FindGameObjectWithTag("RockFist").SetActive(false);
         }
     }
     void CheckForSwap()
@@ -64,5 +62,17 @@ public class ActivateAbility : MonoBehaviour
         {
             hs.SwitchAbility("Calico");
         }
+    }
+    public bool AreInvincible()
+    {
+        if (GetComponent<AtlasBoulderShield>().ShieldActivity()) //if boulder shield is up
+        {
+            return true;
+        }
+        //if (GetComponent<CalicoDash>().PounceActivity()) //if calico is dashing
+        //{
+        //    return true;
+        //}
+        return false;
     }
 }

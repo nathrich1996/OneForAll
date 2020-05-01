@@ -37,21 +37,7 @@ public class RockFist : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Boss" && activated)
-        {
-            //dmg //= //get rock fist value
-            collision.gameObject.GetComponent<BOSSHEALTH>().DecreaseHealth(dmg);
-        }
-        else if (collision.gameObject.tag == "Enemy" && activated)
-        {
-            //dmg //= //get rock fist value
-            collision.gameObject.GetComponent<Health>().DecreaseHealth(1000);
-        }
-        else if (collision.gameObject.tag == "Obstacle"&& activated)
-        {
-            Destroy(collision);
-            Debug.Log("Destroyed Wall");
-        }
+        
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -67,7 +53,7 @@ public class RockFist : MonoBehaviour
         }
         else if (collision.gameObject.tag == "Obstacle" && activated)
         {
-            Destroy(collision);
+            Destroy(collision.gameObject);
             Debug.Log("Destroyed Wall");
         }
     }
