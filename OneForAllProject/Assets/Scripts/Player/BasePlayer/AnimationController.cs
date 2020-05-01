@@ -86,12 +86,12 @@ public class AnimationController : MonoBehaviour
         }
 
         //resets trigger if player attempts to activate an ability/melee while running or airbourne (animation only) *******FIX*******
-        if (animator.GetFloat("MoveX") > 0.01f || Mathf.Abs(animator.GetFloat("MoveY")) > 0.01f)
-        {
-            animator.ResetTrigger("Q");
-            animator.ResetTrigger("E");
-            animator.ResetTrigger("F");
-        }
+        //if (animator.GetFloat("MoveX") > 0.01f || Mathf.Abs(animator.GetFloat("MoveY")) > 0.01f)
+        //{
+        //    animator.ResetTrigger("Q");
+        //    animator.ResetTrigger("E");
+        //    animator.ResetTrigger("F");
+        //}
 
 
         //prev hero was OJ
