@@ -8,15 +8,24 @@ public class BOSSLEVEL : MonoBehaviour
     public Renderer bgRend;
     public Transform skySpawn;
     public GameObject skyscraper;
+    public Sprite[] skyss;
+    private SpriteRenderer rend;
+    private Sprite cur;
+    private int roll;
+    private float position;
 
     void Start()
     {
-        maxTimer = 5;
+        rend = skyscraper.GetComponent<SpriteRenderer>();
+        maxTimer = 3;
         bldgTimer = maxTimer;
     }
 
     void Update()
     {
+        roll = Random.Range(0, 2);
+        cur = skyss[roll];
+        rend.sprite = cur;
         bldgTimer -= Time.deltaTime;
         if (bldgTimer <= 0)
         {
