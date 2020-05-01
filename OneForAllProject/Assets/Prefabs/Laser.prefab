@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5967209904341972244}
   - component: {fileID: 6804377455685713884}
   - component: {fileID: -8358386710538014369}
+  - component: {fileID: -539976001401275047}
   m_Layer: 0
   m_Name: Laser
   m_TagString: EnemyAttack
@@ -70,10 +71,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -332621005
+  m_SortingLayer: 3
   m_SortingOrder: 6
-  m_Sprite: {fileID: 21300000, guid: 6c6c01ef3a453f54e92267006ceb56f5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8e1ac229f638b2249998b9c5401f02f0, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -119,6 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velX: -7
   velY: 0
+  dmg: 10
 --- !u!114 &-8358386710538014369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,3 +134,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trueDamage: 10
+--- !u!61 &-539976001401275047
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5942656844137219887}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 15, y: 15}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 15, y: 15}
+  m_EdgeRadius: 0

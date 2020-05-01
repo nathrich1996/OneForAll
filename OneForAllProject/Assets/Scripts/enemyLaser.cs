@@ -21,6 +21,9 @@ public class enemyLaser : MonoBehaviour
         if(tiktok > 3.0f)
         {
             Destroy(gameObject);
+            Debug.Log("Laser destroyed");
+            tiktok = 0f;
+            tiktok = 0f;
         }
         else
         {
@@ -34,6 +37,7 @@ public class enemyLaser : MonoBehaviour
         {
             collision.gameObject.GetComponent<Health>().DecreaseHealth(dmg);
             Destroy(gameObject);
+            Debug.Log("Laser hit Player");
         }
     }
 }

@@ -30,7 +30,9 @@ public class GunEnemyAI : MonoBehaviour
             Vector2 screenpoint = playerView.WorldToScreenPoint(gameObject.transform.position);
             if (screenpoint.x > 0 && screenpoint.x < Screen.width)
             {
-                GameObject pewlaser = Instantiate(laser, shootSpot);
+                GameObject pewlaser = Instantiate(laser, shootSpot) as GameObject;
+                pewlaser.transform.position = shootSpot.transform.position;
+                Debug.Log("Laser spawned");
             }
             timer = maxtimer;
         }
