@@ -16,7 +16,7 @@ public class GameOver : MonoBehaviour
     }
     public void LoadHeroPuzzle()
     {
-        //SceneManager.LoadScene();
+        SceneManager.LoadScene(1);
     }
     public void LoadAFOPuzzle()
     {

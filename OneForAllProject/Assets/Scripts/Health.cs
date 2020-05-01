@@ -28,7 +28,7 @@ public class Health : MonoBehaviour
         if (curHealth <= 0) {//Death
             if(gameObject.tag == "Player")
             {
-                SceneManager.LoadScene("GameOver");
+                SceneController.LoadGameOver();
             }
             gameObject.SetActive(false);
         }

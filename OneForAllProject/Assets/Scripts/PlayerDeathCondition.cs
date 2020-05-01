@@ -22,7 +22,7 @@ public class NewBehaviourScript : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Destroy(collision.gameObject);
-            SceneManager.LoadScene("GameOver");
+            SceneController.LoadGameOver();
         }
         else
         {

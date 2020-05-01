@@ -17,7 +17,6 @@ public class BOSSLEVEL : MonoBehaviour
     void Start()
     {
         rend = skyscraper.GetComponent<SpriteRenderer>();
-        maxTimer = 3;
         bldgTimer = maxTimer;
     }
 
