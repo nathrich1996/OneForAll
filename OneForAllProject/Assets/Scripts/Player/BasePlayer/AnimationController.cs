@@ -69,29 +69,28 @@ public class AnimationController : MonoBehaviour
             MeleeScript.fhit = false;
         }
 
-        //Atlas Boulder shield hold
+        //Atlas Boulder shield hold (adding cooldown condition may enable us to lock him whenever he uses shield if needed)
         if (SwapScript.GetCurrentHero() == "Atlas")
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 animator.SetBool("Shield", true);
-                PlayerControllerScript.MoveLock = true;
+                //PlayerControllerScript.MoveLock = true;
                
             }
             else if (Input.GetKeyUp(KeyCode.Q))
             {
                 animator.SetBool("Shield", false);
-                PlayerControllerScript.MoveLock = false;
+                //PlayerControllerScript.MoveLock = false;
             }
         }
 
-        //resets trigger if player attempts to activate an ability/melee while running or airbourne (animation only) *******FIX*******
-        //if (animator.GetFloat("MoveX") > 0.01f || Mathf.Abs(animator.GetFloat("MoveY")) > 0.01f)
-        //{
-        //    animator.ResetTrigger("Q");
-        //    animator.ResetTrigger("E");
-        //    animator.ResetTrigger("F");
-        //}
+        //resets trigger for melee if player attempts it airbourne
+        if (Mathf.Abs(animator.GetFloat("MoveY")) > 0.01f) 
+        { 
+            animator.ResetTrigger("F"); 
+
+        }
 
 
         //prev hero was OJ

@@ -172,6 +172,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 4
     m_ConditionEvent: MoveY
     m_EventTreshold: -0.01
+  - m_ConditionMode: 2
+    m_ConditionEvent: Shield
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -4542413955621026927}
   m_Solo: 0
@@ -299,6 +302,9 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 1
     m_ConditionEvent: Q
+    m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: Shield
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -2819598797969364360}
@@ -998,6 +1004,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: Shield
+    m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: Q
     m_EventTreshold: 0
@@ -1781,6 +1790,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 3
     m_ConditionEvent: MoveX
     m_EventTreshold: 0.01
+  - m_ConditionMode: 2
+    m_ConditionEvent: Shield
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 2320116739398447489}
   m_Solo: 0
@@ -2855,6 +2867,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 3
     m_ConditionEvent: MoveX
     m_EventTreshold: 0.01
+  - m_ConditionMode: 2
+    m_ConditionEvent: Shield
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 974790835233980430}
   m_Solo: 0
@@ -3427,6 +3442,9 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 1
     m_ConditionEvent: Q
+    m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: Shield
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -2819598797969364360}
