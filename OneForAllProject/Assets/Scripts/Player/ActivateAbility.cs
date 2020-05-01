@@ -46,7 +46,6 @@ public class ActivateAbility : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.E))
         {
-            GetComponent<AtlasBoulderShield>().DeactivateShield();
             GameObject.FindGameObjectWithTag("RockFist").GetComponent<RockFist>().DeactivateRockFist();
             GameObject.FindGameObjectWithTag("RockFist").SetActive(false);
         }
