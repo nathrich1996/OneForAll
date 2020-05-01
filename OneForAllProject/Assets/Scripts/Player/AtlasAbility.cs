@@ -53,10 +53,8 @@ namespace   Player.HeroAbility
                     float fistDmg = 30 * rockFistMeter;
                     fistHB.GetComponent<CollisionKey>().trueDamage = fistDmg;
                     fistHB.SetActive(true);
-                    StartCoroutine("Lag");
                     fistHB.SetActive(false);
                     rockFistMeter = 0; //meter is back to zero;
-                    StartCoroutine("Lag");
                 }
             }
         }
@@ -76,11 +74,6 @@ namespace   Player.HeroAbility
                 AddToRockFistMeter(shieldParryVal);
                 collision.gameObject.SetActive(false);
             }
-        }
-
-        IEnumerator Lag()
-        {
-            yield return new WaitForSeconds(3);
         }
 
     }
