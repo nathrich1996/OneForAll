@@ -3,26 +3,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AtlasBoulderShield : MonoBehaviour
+public class AtlasBoulderShield : MonoBehaviour //will be attached to player and feed into Atlas Ability
 {
-    float shieldParryVal;
-    public GameObject self;
-
+    float shieldParryVal = 2f;
+    bool isShieldActive;
+    public AtlasAbility ab;
     void Start()
-    {   
+    {
+        isShieldActive = false;
     }
 
     void Update()
     {
         
     }
-
+    public void ActivateShield()
+    {
+        isShieldActive = true;
+    }
+    public void DeactivateShield()
+    {
+        isShieldActive = false;
+    }
+    public bool ShieldActivity()
+    {
+        return isShieldActive;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(self.GetComponent<AtlasAbility>().isBoulderShieldActive == true)
+        if(isShieldActive == true)
         {
-            self.GetComponent<AtlasAbility>().AddToRockFistMeter(shieldParryVal);
-            collision.gameObject.SetActive(false);
+            ab.AddToRockFistMeter(shieldParryVal);
+            Debug.Log("Building to Sheild");
         }
     }
 }

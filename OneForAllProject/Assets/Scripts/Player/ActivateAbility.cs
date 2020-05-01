@@ -33,11 +33,22 @@ public class ActivateAbility : MonoBehaviour
         {
             qhit = true;
             hs.currentSet.ActivateFirstAbility();
+            GameObject.FindGameObjectWithTag("RockFist").SetActive(true);
         }
-        else if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             ehit = true;
             hs.currentSet.ActivateSecondAbility();
+        }
+        if(Input.GetKeyUp(KeyCode.Q)) //Deactivate abilities that need to be held or trigger a box
+        {
+            GetComponent<AtlasBoulderShield>().DeactivateShield();
+        }
+        if (Input.GetKeyUp(KeyCode.E))
+        {
+            GetComponent<AtlasBoulderShield>().DeactivateShield();
+            GameObject.FindGameObjectWithTag("RockFist").GetComponent<RockFist>().DeactivateRockFist();
+            GameObject.FindGameObjectWithTag("RockFist").SetActive(false);
         }
     }
     void CheckForSwap()

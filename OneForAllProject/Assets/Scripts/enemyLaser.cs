@@ -33,11 +33,28 @@ public class enemyLaser : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        //if (collision.gameObject.tag == "Player" && !collision.gameObject.GetComponent<AtlasBoulderShield>().ShieldActivity())
+        //{
+        //    collision.gameObject.GetComponent<Health>().DecreaseHealth(dmg);
+        //    Destroy(gameObject);
+        //    Debug.Log("Laser hit Player");
+        //}
+        //if (collision.gameObject.tag == "Player" && collision.gameObject.GetComponent<AtlasBoulderShield>().ShieldActivity())
+        //{
+        //    Destroy(gameObject);
+        //}
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player" && !collision.gameObject.GetComponent<AtlasBoulderShield>().ShieldActivity())
         {
             collision.gameObject.GetComponent<Health>().DecreaseHealth(dmg);
             Destroy(gameObject);
             Debug.Log("Laser hit Player");
+        }
+        if (collision.gameObject.tag == "Player" && collision.gameObject.GetComponent<AtlasBoulderShield>().ShieldActivity())
+        {
+            Destroy(gameObject);
         }
     }
 }

@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class RockFist : MonoBehaviour
 {
-    public GameObject player;
     float dmg;
+    bool activated;
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        activated= false;
     }
 
     
@@ -16,18 +16,41 @@ public class RockFist : MonoBehaviour
     {
         
     }
+    public void ActivateRockFist(float damage)
+    {
+        activated = true;
+        dmg = damage;
+        Debug.Log("Fist Acivated");
+    }
+    public void DeactivateRockFist()
+    {
+        StartCoroutine("WaitToDeactivate");
+        
+    }
+    IEnumerator WaitToDeactivate()
+    {
+        yield return new WaitForSeconds(2);
+        activated = false;
+        dmg = 1;
+        Debug.Log("Fist DeAcivated");
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Boss")
+        if (collision.gameObject.tag == "Boss" && activated)
         {
             //dmg //= //get rock fist value
             collision.gameObject.GetComponent<BOSSHEALTH>().DecreaseHealth(dmg);
         }
-        else if (collision.gameObject.tag == "Enemy")
+        else if (collision.gameObject.tag == "Enemy" && activated)
         {
             //dmg //= //get rock fist value
-            collision.gameObject.GetComponent<Health>().DecreaseHealth(dmg);
+            collision.gameObject.GetComponent<Health>().DecreaseHealth(1000);
+        }
+        else if (collision.gameObject.tag == "Obstacle"&& activated)
+        {
+            Destroy(collision);
+            Debug.Log("Destroyed Wall");
         }
     }
 }

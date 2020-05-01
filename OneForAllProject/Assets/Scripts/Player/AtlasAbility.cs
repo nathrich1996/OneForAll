@@ -7,18 +7,18 @@ namespace   Player.HeroAbility
     public class AtlasAbility : HeroAbilityBase
     {
 
-        float rockFistMeter;
+        float rockFistMeter; //multiplier
         float maxMeter; //value to cap meter
         float shieldParryVal;
         public  bool isBoulderShieldActive = false;
-        public GameObject self;
-        public GameObject fistHB;
 
+        public AtlasBoulderShield abs;
+        public RockFist rf; //belongs to empty transform with 
         private void Start()
         {
-            fistHB.SetActive(false);
+            //fistHB.SetActive(false);
             shieldParryVal = 1;
-            rockFistMeter = 0f;
+            rockFistMeter = 1f;
             maxMeter = 15;
         }
         public override void ActivateFirstAbility()
@@ -28,35 +28,19 @@ namespace   Player.HeroAbility
         public override void ActivateSecondAbility()
         {
             RockFist();
+            rockFistMeter = 1;
         }
 
         void BoulderShield()
         {
-            if (Input.GetKeyDown("Q")) //if holding block button
-            {
-                isBoulderShieldActive = true; //shield is active
-            }
-            else if (Input.GetKeyUp("Q"))
-            {
-                isBoulderShieldActive = false; //shield is not active
-            }
+            abs.ActivateShield();
         }
         void RockFist()
         {
-            if (isBoulderShieldActive == true)
-                Debug.Log("Shield up, can't use rock fist");
-            else
-            {
-                if (Input.GetKeyDown("E"))
-                {
-                    Debug.Log("Punch");
-                    float fistDmg = 30 * rockFistMeter;
-                    fistHB.GetComponent<CollisionKey>().trueDamage = fistDmg;
-                    fistHB.SetActive(true);
-                    fistHB.SetActive(false);
-                    rockFistMeter = 0; //meter is back to zero;
-                }
-            }
+            Debug.Log("Punch");
+            float fistDmg = 30 * rockFistMeter;
+            rockFistMeter = 1; //meter is back to 1;
+            rf.ActivateRockFist(fistDmg);
         }
         public void AddToRockFistMeter(float damageValue)//add to meter when Boulder Shield hits projectiles
         {
@@ -67,14 +51,7 @@ namespace   Player.HeroAbility
             }
         }
 
-        private void OnTriggerEnter2D(Collider2D collision)
-        {
-            if (isBoulderShieldActive == true)
-            {
-                AddToRockFistMeter(shieldParryVal);
-                collision.gameObject.SetActive(false);
-            }
-        }
+       
 
     }
 }
