@@ -23,7 +23,6 @@ public class LWCol : MonoBehaviour
         {
             Debug.Log("Collide!");
             Destroy(collision.gameObject);
-            Destroy(gameObject);
         }
     }
 }

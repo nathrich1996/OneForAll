@@ -44,8 +44,8 @@ public class Health : MonoBehaviour
     {
         curHealth = curHealth - dmg;
         
-        Debug.Log("- " + dmg + "HP");
-        Debug.Log("HP: " + curHealth);
+        //Debug.Log("- " + dmg + "HP");
+        //Debug.Log("HP: " + curHealth);
         if (gameObject.tag == "Player")
             healthBar.value = CalcHealth();
 

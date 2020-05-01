@@ -13,6 +13,8 @@ TagManager:
   - Atlas
   - RockFist
   - Obstacle
+  - LaserWall
+  - Station
   layers:
   - Default
   - TransparentFX

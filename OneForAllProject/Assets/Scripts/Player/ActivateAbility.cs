@@ -9,7 +9,7 @@ public class ActivateAbility : MonoBehaviour
     //public Animator animator;
     public bool qhit = false;
     public bool ehit = false;
-
+    public RockFist rf;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,7 +45,7 @@ public class ActivateAbility : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.E))
         {
-            GameObject.FindGameObjectWithTag("RockFist").GetComponent<RockFist>().DeactivateRockFist();
+           rf.DeactivateRockFist();
         }
     }
     void CheckForSwap()
