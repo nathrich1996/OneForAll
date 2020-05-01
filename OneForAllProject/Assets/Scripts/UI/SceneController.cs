@@ -14,13 +14,14 @@ public static class SceneController
     public static void LoadGameOver()
     {
         int currentScene = SceneManager.GetActiveScene().buildIndex;
-        if (currentScene != 2)//boss scene 
+        Debug.Log("Scene: " + currentScene.ToString());
+        if (currentScene == 3)//boss scene 
         {
-            SceneManager.LoadScene(6);//load boss game over scene
+            SceneManager.LoadScene(9);//load boss game over scene
         }
         else //load regular game over
         {
-            SceneManager.LoadScene(5); //load regular game over
+            SceneManager.LoadScene(8); //load regular game over
         }
     }
 }

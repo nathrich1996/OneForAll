@@ -21,7 +21,7 @@ public class DeathCatcher : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             Debug.Log("Death");
-            SceneManager.LoadScene("GameOver");
+            SceneController.LoadGameOver();
         }
     }
 }

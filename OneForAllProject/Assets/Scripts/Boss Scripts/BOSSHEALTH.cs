@@ -26,7 +26,7 @@ public class BOSSHEALTH : MonoBehaviour
 
         if (curHealth <= 0)
         {
-           // SceneManager.LoadScene(/*"SceneName*/);
+            SceneController.LoadNextLevel();
         }
 
     }

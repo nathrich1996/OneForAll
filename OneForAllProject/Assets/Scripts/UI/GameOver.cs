@@ -12,14 +12,14 @@ public class GameOver : MonoBehaviour
 
     public void LoadAristides()
     {
-        //SceneManager.LoadScene();
+        SceneManager.LoadScene(3);
     }
     public void LoadHeroPuzzle()
     {
         SceneManager.LoadScene(1);
     }
-    public void LoadAFOPuzzle()
+    public void LoadCredits()
     {
-        //SceneManager.LoadScne();
+        SceneManager.LoadScene(6);
     }
 }
