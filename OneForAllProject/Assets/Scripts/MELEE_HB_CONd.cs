@@ -42,6 +42,11 @@ public class MELEE_HB_CONd : MonoBehaviour
             Debug.Log("Hit Enemy");
             collision.gameObject.GetComponent<Health>().DecreaseHealth(damage);
         }
+        else if (collision.gameObject.tag == "Station")
+        {
+            Debug.Log("Hit Station");
+            Destroy(collision.gameObject);
+        }
 
     }
 }

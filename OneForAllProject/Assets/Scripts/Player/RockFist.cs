@@ -21,15 +21,18 @@ public class RockFist : MonoBehaviour
         activated = true;
         dmg = damage;
         Debug.Log("Fist Acivated");
+        StartCoroutine("WaitToDeactivate");
     }
     public void DeactivateRockFist()
     {
-        StartCoroutine("WaitToDeactivate");
-        
+        //StartCoroutine("WaitToDeactivate");
+        activated = false;
+        dmg = 1;
+        Debug.Log("Fist DeAcivated");
     }
     IEnumerator WaitToDeactivate()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1f);
         activated = false;
         dmg = 1;
         Debug.Log("Fist DeAcivated");
@@ -49,7 +52,7 @@ public class RockFist : MonoBehaviour
         else if (collision.gameObject.tag == "Enemy" && activated)
         {
             //dmg //= //get rock fist value
-            collision.gameObject.GetComponent<Health>().DecreaseHealth(1000);
+            collision.gameObject.GetComponent<Health>().DecreaseHealth(dmg);
         }
         else if (collision.gameObject.tag == "Obstacle" && activated)
         {

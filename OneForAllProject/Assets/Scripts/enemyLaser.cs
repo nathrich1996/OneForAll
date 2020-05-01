@@ -61,5 +61,9 @@ public class enemyLaser : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if (collision.gameObject.tag == "Obstacle")
+        {
+            Destroy(gameObject);
+        }
     }
 }

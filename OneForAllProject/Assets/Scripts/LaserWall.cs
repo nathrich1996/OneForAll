@@ -25,12 +25,17 @@ public class LaserWall : MonoBehaviour
             timer = 0;
         }
     }
+    public void SetSpeed(float s)
+    {
+        speed = 3;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && !collision.gameObject.GetComponent<ActivateAbility>().AreInvincible())
         {
-            //stuff
+            collision.gameObject.GetComponent<Health>().DecreaseHealth(12f);
+            Debug.Log("Laser hit Player");
         }
     }
 }
