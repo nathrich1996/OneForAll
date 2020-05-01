@@ -6,7 +6,7 @@ public class Justarang : MonoBehaviour
 {
     public float projSpeed = 300f;
     Rigidbody2D rb;
-    float timer = 0;
+    float timer = 0, dmg;
     bool isDestroyed;
     void Start()
     {
@@ -40,5 +40,19 @@ public class Justarang : MonoBehaviour
     public void SetDirection(float speed) //Positive for right, negative for left.
     {
         projSpeed *= speed;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Enemy")
+        {
+            dmg = 100f;
+            collision.gameObject.GetComponent<Health>().DecreaseHealth(dmg);
+        }
+        else if(collision.gameObject.tag == "Boss")
+        {
+            dmg = 50f;
+            collision.gameObject.GetComponent<BOSSHEALTH>().DecreaseHealth(dmg);
+        }
     }
 }
