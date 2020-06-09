@@ -17,6 +17,7 @@ TagManager:
   - Station
   - Boss
   - Destroyer
+  - UI_TextPopUp
   layers:
   - Default
   - TransparentFX
