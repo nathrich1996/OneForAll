@@ -4,16 +4,26 @@ using UnityEngine;
 
 public class PlayerMelee : MonoBehaviour
 {
+    private GameObject Gpcontroller;
     public GameObject meleeHB;
     public bool fhit = false;
 
     void Start()
     {
-        
+        Gpcontroller = GameObject.FindGameObjectWithTag("Player");
     }
 
     void Update()
     {
+        if (Gpcontroller.GetComponent<PlayerController>().playerMoveState == PlayerMove.right)
+        {
+            meleeHB.transform.position = new Vector2(Gpcontroller.transform.position.x + 50, Gpcontroller.transform.position.y);
+        }
+        else
+        {
+            meleeHB.transform.position = new Vector2(Gpcontroller.transform.position.x - 50, Gpcontroller.transform.position.y);
+        }
+
         Attack();
     }
 

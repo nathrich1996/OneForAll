@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     public float lowJumpMultiplier = 2f;
 
     //State machine to detect which way character is facing
-    PlayerMove playerMoveState;
+    public PlayerMove playerMoveState;
 
     // Start is called before the first frame update
     void Start()
