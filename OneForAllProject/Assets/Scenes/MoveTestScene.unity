@@ -854,6 +854,7 @@ MonoBehaviour:
   jumpVelocity: 9
   fallMultiplier: 3
   lowJumpMultiplier: 2
+  playerMoveState: 0
 --- !u!95 &1552396971
 Animator:
   serializedVersion: 3
@@ -1473,7 +1474,7 @@ PrefabInstance:
     - target: {fileID: 4020978157210877192, guid: 8672307eca2511e4ea7a070bfecd8b13,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -229.1
+      value: -79.600006
       objectReference: {fileID: 0}
     - target: {fileID: 4020978157210877192, guid: 8672307eca2511e4ea7a070bfecd8b13,
         type: 3}
@@ -1483,7 +1484,7 @@ PrefabInstance:
     - target: {fileID: 4020978157210877192, guid: 8672307eca2511e4ea7a070bfecd8b13,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: -459.2
+      value: -160.20001
       objectReference: {fileID: 0}
     - target: {fileID: 4020978157210877192, guid: 8672307eca2511e4ea7a070bfecd8b13,
         type: 3}
@@ -1503,7 +1504,7 @@ PrefabInstance:
     - target: {fileID: 4020978157210877192, guid: 8672307eca2511e4ea7a070bfecd8b13,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4020978157210877192, guid: 8672307eca2511e4ea7a070bfecd8b13,
         type: 3}
@@ -1519,6 +1520,46 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TextBoxPopUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4020978157314413297, guid: 8672307eca2511e4ea7a070bfecd8b13,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4020978157314413297, guid: 8672307eca2511e4ea7a070bfecd8b13,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -68.60003
+      objectReference: {fileID: 0}
+    - target: {fileID: 4020978157314413297, guid: 8672307eca2511e4ea7a070bfecd8b13,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 139.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4020978157314413297, guid: 8672307eca2511e4ea7a070bfecd8b13,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4020978157314413297, guid: 8672307eca2511e4ea7a070bfecd8b13,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4020978157314413297, guid: 8672307eca2511e4ea7a070bfecd8b13,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4020978157314413297, guid: 8672307eca2511e4ea7a070bfecd8b13,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4020978157314413299, guid: 8672307eca2511e4ea7a070bfecd8b13,
+        type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8672307eca2511e4ea7a070bfecd8b13, type: 3}

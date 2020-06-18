@@ -14,6 +14,8 @@ public class AnimationController : MonoBehaviour
     public HeroSwap SwapScript;
     public ActivateAbility AbilityScript;
     public PlayerMelee MeleeScript;
+    public Health HealthScript;
+    //private AnimationClip[] DamageAnim;
     //public AnimationClip[] SwapAnim = new AnimationClip[3];
     //public AnimationClip SwapClip;
 
@@ -29,8 +31,11 @@ public class AnimationController : MonoBehaviour
         SwapScript = GetComponent<HeroSwap>();
         AbilityScript = GetComponent<ActivateAbility>();
         MeleeScript = GetComponent<PlayerMelee>();
+        HealthScript = GetComponent<Health>();
         //load swap and switch Anim clips from inspector
+        //DamageAnim = new AnimationClip[3];
         
+
     }
 
     // Update is called once per frame
@@ -67,6 +72,12 @@ public class AnimationController : MonoBehaviour
         {
             animator.SetTrigger("F");
             MeleeScript.fhit = false;
+        }
+
+        if (HealthScript.isDamaged)
+        {
+            animator.SetTrigger("Damaged");
+            HealthScript.isDamaged = false;
         }
 
         //Atlas Boulder shield hold (adding cooldown condition may enable us to lock him whenever he uses shield if needed)

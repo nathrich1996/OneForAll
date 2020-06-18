@@ -8,6 +8,7 @@ public class Health : MonoBehaviour
 {
     public float maxHealth;
     public float curHealth;
+    public bool isDamaged;
 
     public Slider healthBar;
 
@@ -15,6 +16,7 @@ public class Health : MonoBehaviour
     {
         maxHealth = 100f;
         curHealth = maxHealth;
+        isDamaged = false;
         if (gameObject.tag == "Player")
             healthBar.value = CalcHealth();
     }
@@ -43,12 +45,14 @@ public class Health : MonoBehaviour
     public void DecreaseHealth(float dmg)
     {
         curHealth = curHealth - dmg;
-        
+
         //Debug.Log("- " + dmg + "HP");
         //Debug.Log("HP: " + curHealth);
         if (gameObject.tag == "Player")
+        {
             healthBar.value = CalcHealth();
-
+            isDamaged = true;
+        }
     }
 
     public float CalcHealth()
